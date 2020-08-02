@@ -1,0 +1,23 @@
+<div class="posts">
+    <h3>Lists of Posts</h3>
+    <p><a href="#/posts/compose">Compose</a></p>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Created</th>
+            <th>Action</th>
+        </tr>
+        <tr ng-repeat="post in posts">
+            <td>{{post.title}}</td>
+            <td>
+                <label for="">getExcerpt({{post.content}})</label>
+                <a href="#/posts/edit/{{post.ID}}">View</a>
+            </td>
+            <td>{{post.created}}</td>
+            <td>
+                <a href="#/posts/edit/{{post.ID}}">Edit</a>
+            </td>
+        </tr>
+    </table>
+</div>
