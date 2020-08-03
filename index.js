@@ -9,6 +9,11 @@ app.config(function($stateProvider, $urlRouterProvider, $provide, $httpProvider)
         templateUrl: "./components/home.html",
         controller: "Home"
     })
+    .state("login", {
+        url: "/login",
+        templateUrl: "./components/login.html",
+        controller: "Login"
+    })
     .state("posts", {
         url: "/posts",
         templateUrl: "./components/posts.html",
@@ -24,6 +29,17 @@ app.config(function($stateProvider, $urlRouterProvider, $provide, $httpProvider)
         templateUrl: "./components/posts.edit.html",
         controller: "Edit"
     });
+
+    function authenticated ($q, $state, $timeout, AuthService) {
+        if(AuthService.isAuthenticated()) {
+            return $q.when();
+        } else {
+            $timeout(function() {
+                $state.go('login', {});
+                return $q.reject();
+            })
+        }
+    }
 });
 
 app.run(function($rootScope) {

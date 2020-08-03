@@ -1,5 +1,11 @@
 <div class="home" ng-controller="Home">
-    <h1>Home</h1>
+    <p><a href="#" ng-click="logout($event)">Logout</a></p>
+    <h1>Welcome back, {{currentUser}}!</h1>
     <p>There is a total of {{posts.length}} posts.</p>
-    <p><a href="#/posts">View Posts</a></p>
+    <nav>
+        <ul>
+            <li><a href="#/posts/compose">Compose Post</a></li>
+            <li><a href="#/posts">View Posts</a></li>
+        </ul>
+    </nav>
 </div>

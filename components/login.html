@@ -1,0 +1,23 @@
+<div class="login" ng-controller="Login">
+  <h1><a href="#">Logo</a></h1>
+  <div class="alert" ng-if="errors.length">
+    <ul class="alert__warning">
+      <li ng-repeat="error in errors">{{error}}</li>
+    </ul>
+  </div>
+  <form class="form" method="POST" ng-submit="signIn($event)">
+    <div class="input">
+      <div class="input__group">
+        <label>Username</label>
+        <input type="text" class="form__control" ng-model="username">
+      </div>
+      <div class="input__group">
+        <label>Password</label>
+        <input type="password" class="form__control" ng-model="password">
+      </div>
+      <div class="form__input">
+        <input type="submit" class="button" value="Submit">
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,12 +1,53 @@
-app.controller("Home", function($http, $scope) {
+app.controller("Home", function($http, $scope, $window, $location, Authorisation) {
     $scope.posts = [];
+    $scope.currentUser = $window.localStorage.getItem('currentUser');
     $http({
         method: "GET",
         url: "backend/get/?query=posts"
     }).then(function(response) {
         $scope.posts = response.data;
-        console.log($scope.posts);
     });
+    $scope.logout = function(event) {
+        event.preventDefault();
+        Authorisation.logout(function(result) {
+            if(result) {
+                $location.path("/login");
+            }
+        });
+    }
+});
+
+app.controller("Login", function($scope, $window, $location, Authorisation) {
+    init();
+    function init() {
+        if($window.localStorage.getItem('token')) {
+            $location.path("/");
+        }
+    }
+
+    $scope.errors = [];
+    $scope.signIn = function(event) {
+        $scope.errors = [];
+
+        event.preventDefault();
+        const {username, password} = $scope;
+        if(username && password) {
+            Authorisation.login({username, password}, function(result) {
+                if(result == true) {
+                    $location.path("/");
+                } else {
+                    if(result != null) {
+                        $scope.errors.push(result);
+                    } else {
+                        $scope.errors.push("There was an error logging you in. Please try again later.");
+                    }
+                }
+            });
+        } else {
+            if(!username) $scope.errors.push("Username required.");
+            if(!password) $scope.errors.push("Password required.");
+        }
+    }
 });
 
 app.controller("Posts", function($http, $scope) {
