@@ -1,33 +1,298 @@
+@font-face {
+  font-family: 'Inter';
+  src: url("./static/fonts/Inter-Thin.woff2") format("woff2"), url("./static/fonts/Inter-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url("./static/fonts/Inter-SemiBold.woff2") format("woff2"), url("./static/fonts/Inter-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url("./static/fonts/Inter-Regular.woff2") format("woff2"), url("./static/fonts/Inter-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url("./static/fonts/Inter-ExtraLight.woff2") format("woff2"), url("./static/fonts/Inter-ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url("./static/fonts/Inter-ExtraBold.woff2") format("woff2"), url("./static/fonts/Inter-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url("./static/fonts/Inter-Medium.woff2") format("woff2"), url("./static/fonts/Inter-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url("./static/fonts/Inter-Bold.woff2") format("woff2"), url("./static/fonts/Inter-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url("./static/fonts/Inter-Black.woff2") format("woff2"), url("./static/fonts/Inter-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url("./static/fonts/Inter-Light.woff2") format("woff2"), url("./static/fonts/Inter-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --body-text: #262d3c;
+  --link-colour: #0081cb;
+  --colour-white: #fff;
+  --control-border: #ece9e9;
+  --dark-background: #11141d;
+  --light-background: #0081cb;
+}
+
 *,
 *::before,
 *::after {
-    border: 0;
-    margin: 0;
-    padding: 0;
-    outline: none;
-    box-sizing: border-box;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
+
 html {
-    line-height: 1.5;
+  line-height: 1.5;
 }
+
 body {
-    font-size: 16px;
-    font-family: sans-serif;
-    background-color: #D9E5FF;
+  color: var(--body-text);
+  font-size: 16px;
+  font-family: Inter, sans-serif;
 }
-header{
-    width: 100%;
-    height: 50px;
-    color: #D9E5FF;
-    background-color: #171C27;
-}
+
 a {
-    text-decoration: none;
+  color: var(--link-colour);
+  text-decoration: none;
 }
-.content {
-    width: 100%;
-    max-width: 1400px;
-    min-height: 100vh;
-    margin: 0 auto;
-    display: flex;
+
+.site .login {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
+.site .login .login__container {
+  width: 400px;
+  height: auto;
+}
+
+.site .login .login__container h1 {
+  width: 100%;
+  height: 70px;
+  color: #ddd;
+  margin: 0px;
+  margin-bottom: 40px;
+}
+
+.site .login .login__container h1 a {
+  width: 100%;
+  height: 70px;
+  display: block;
+  font-size: 10px;
+  text-indent: -9999px;
+  background-size: auto 70px;
+  background-image: url(./logo.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.site .login .login__container .form {
+  width: 100%;
+  position: relative;
+}
+
+.site .login .login__container .form .input .input__group {
+  width: 100%;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.site .login .login__container .form .input .input__group .form__label {
+  width: 100%;
+  display: block;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.site .login .login__container .form .input .input__group .form__control {
+  width: 100%;
+  display: block;
+  padding: 14px;
+  font-size: inherit;
+  font-family: inherit;
+  border: 1px solid var(--control-border);
+}
+
+.site .login .login__container .form .input .button {
+  cursor: pointer;
+  padding: 16px;
+  font-size: inherit;
+  font-family: inherit;
+  color: var(--colour-white);
+  text-transform: uppercase;
+  background-color: var(--light-background);
+}
+
+.site .login .login__container .form .form__group {
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.site header {
+  width: 100%;
+  height: 70px;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  overflow: hidden;
+  background-color: var(--dark-background);
+}
+
+.site header .logo {
+  width: 150px;
+  height: 50px;
+}
+
+.site header .logo h1 {
+  width: auto;
+  height: 50px;
+  margin: 0px;
+}
+
+.site header .logo h1 a {
+  width: auto;
+  height: 50px;
+  display: block;
+  font-size: 10px;
+  text-indent: -999px;
+  background-size: auto 50px;
+  background-image: url(./logo.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.site header .user {
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+}
+
+.site .content {
+  padding: 40px;
+}
+
+.site .content ol {
+  list-style: none;
+  list-style-position: outside;
+}
+
+.site .content .table {
+  width: 100%;
+}
+
+.site .content .table .table__header {
+  padding: 5px;
+  text-align: left;
+  font-weight: 200;
+  color: var(--colour-white);
+  background-color: var(--dark-background);
+}
+
+.site .content .table .table__row {
+  padding: 5px;
+}
+
+.site .form {
+  width: 100%;
+  position: relative;
+}
+
+.site .form .input .input__group {
+  width: 100%;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.site .form .input .input__group .form__label {
+  width: 100%;
+  display: block;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.site .form .input .input__group .form__control {
+  width: 100%;
+  color: inherit;
+  display: block;
+  padding: 14px;
+  font-size: inherit;
+  font-family: inherit;
+  border: 1px solid var(--control-border);
+}
+
+.site .form .input .button {
+  cursor: pointer;
+  padding: 16px;
+  font-size: inherit;
+  font-family: inherit;
+  color: var(--colour-white);
+  background-color: var(--light-background);
+}
+
+.site .form .form__group {
+  margin: 0;
+  margin-bottom: 20px;
+}
+/*# sourceMappingURL=index.css.map */
