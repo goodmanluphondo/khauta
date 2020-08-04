@@ -1,4 +1,5 @@
 @import "fonts";
+@import "login";
 
 :root {
   --body-text: #262d3c;
@@ -26,89 +27,15 @@ body {
   font-size: 16px;
   font-family: Inter, sans-serif;
 }
+ul,
+ol {
+  list-style: none;
+}
 a {
   color: var(--link-colour);
   text-decoration: none;
 }
 .site {
-  .login {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    .login__container {
-      width: 400px;
-      height: auto;
-
-      h1 {
-        width: 100%;
-        height: 70px;
-        color: #ddd;
-        margin: 0px;
-        margin-bottom: 40px;
-    
-        a {
-          width: 100%;
-          height: 70px;
-          display: block;
-          font-size: 10px;
-          text-indent: -9999px;
-          background-size: auto 70px;
-          background-image: url(./logo.png);
-          background-repeat: no-repeat;
-          background-position: center;
-        }
-      }
-    
-      .form {
-        width: 100%;
-        position: relative;
-    
-        .input {
-          .input__group {
-            width: 100%;
-            margin: 0;
-            margin-bottom: 20px;
-    
-            .form__label {
-              width: 100%;
-              display: block;
-              margin: 0;
-              margin-bottom: 10px;
-            }
-
-            .form__control {
-              width: 100%;
-              display: block;
-              padding: 14px;
-              font-size: inherit;
-              font-family: inherit;
-              border: 1px solid var(--control-border);
-              // border-radius: 10px;
-            }
-          }
-
-          .button {
-            cursor: pointer;
-            padding: 16px;
-            font-size: inherit;
-            font-family: inherit;
-            color: var(--colour-white);
-            text-transform: uppercase;
-            background-color: var(--light-background);
-          }
-        }
-    
-        .form__group {
-          margin: 0;
-          margin-bottom: 20px;
-        }
-      }
-    }
-  }
-
   header {
     width: 100%;
     height: 70px;
@@ -150,8 +77,13 @@ a {
     padding: 40px;
 
     ol {
-      list-style: none;
       list-style-position: outside;
+    }
+
+    h2 {
+      font-size: 48px;
+      font-weight: normal;
+      font-family: Inter, sans-serif;
     }
 
     .table {
@@ -203,9 +135,9 @@ a {
       .button {
         cursor: pointer;
         padding: 16px;
+        display: inline-block;
         font-size: inherit;
         font-family: inherit;
-        // text-transform: uppercase;
         color: var(--colour-white);
         background-color: var(--light-background);
       }
