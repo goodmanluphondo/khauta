@@ -28,6 +28,20 @@
         background-position: center;
       }
     }
+
+    .alert {
+      display: block;
+      padding: 20px;
+      margin: 0px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      border: 1px solid var(--alert-border);
+      background-color: var(--colour-clouds);
+
+      .alert__warning {
+        color: var(--colour-warning);
+      }
+    }
   
     .form {
       width: 100%;

@@ -7,7 +7,8 @@ app.config(function($stateProvider, $urlRouterProvider, $provide, $httpProvider)
     .state("home", {
         url: "/",
         templateUrl: "./components/home.html",
-        controller: "Home"
+        controller: "Home",
+        // resolve: {authenticated: authenticated}
     })
     .state("login", {
         url: "/login",
@@ -17,21 +18,24 @@ app.config(function($stateProvider, $urlRouterProvider, $provide, $httpProvider)
     .state("posts", {
         url: "/posts",
         templateUrl: "./components/posts.html",
-        controller: "Posts"
+        controller: "Posts",
+        resolve: {authenticated: authenticated}
     })
     .state("compose", {
         url: "/posts/compose",
         templateUrl: "./components/posts.compose.html",
-        controller: "Compose"
+        controller: "Compose",
+        resolve: {authenticated: authenticated}
     })
     .state("edit", {
         url: "/posts/edit/:id",
         templateUrl: "./components/posts.edit.html",
-        controller: "Edit"
+        controller: "Edit",
+        resolve: {authenticated: authenticated}
     });
 
-    function authenticated ($q, $state, $timeout, AuthService) {
-        if(AuthService.isAuthenticated()) {
+    function authenticated ($q, $state, $timeout, Authorisation) {
+        if(Authorisation.lookup()) {
             return $q.when();
         } else {
             $timeout(function() {

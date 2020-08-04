@@ -4,7 +4,11 @@
 :root {
   --body-text: #262d3c;
   --link-colour: #0081cb;
+  --alert-colour: #fffcc8;
+  --alert-border: #bdc3c7;
   --colour-white: #fff;
+  --colour-clouds: #ecf0f1;
+  --colour-warning: #e74c3c;
   --control-border: #ece9e9;
   --dark-background: #11141d;
   --light-background: #0081cb;
@@ -42,6 +46,7 @@ a {
     padding: 10px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     overflow: hidden;
     background-color: var(--dark-background);
 

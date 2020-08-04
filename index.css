@@ -109,6 +109,20 @@
   background-position: center;
 }
 
+.login .login__container .alert {
+  display: block;
+  padding: 20px;
+  margin: 0px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--alert-border);
+  background-color: var(--colour-clouds);
+}
+
+.login .login__container .alert .alert__warning {
+  color: var(--colour-warning);
+}
+
 .login .login__container .form {
   width: 100%;
   position: relative;
@@ -153,7 +167,11 @@
 :root {
   --body-text: #262d3c;
   --link-colour: #0081cb;
+  --alert-colour: #fffcc8;
+  --alert-border: #bdc3c7;
   --colour-white: #fff;
+  --colour-clouds: #ecf0f1;
+  --colour-warning: #e74c3c;
   --control-border: #ece9e9;
   --dark-background: #11141d;
   --light-background: #0081cb;
@@ -200,6 +218,9 @@ a {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   overflow: hidden;
   background-color: var(--dark-background);
 }
