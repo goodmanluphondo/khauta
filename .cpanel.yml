@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export PATH=/home/johnehun/public_html/dashboard
+    - /bin/cp -r * $PATH
