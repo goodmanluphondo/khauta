@@ -40,3 +40,10 @@ app.service("Authorisation", function($http, $window, $location) {
         }
     }
 });
+
+app.service("Loading", function() {
+    var loader = [];
+    var service = {};
+
+    return service;
+});
