@@ -8,8 +8,6 @@ require_once("../../config.php");
  */
 $headers = getallheaders();
 
-$key = "5f2b5cdbe5194f10b3241568fe4e2b24";
-
 if(isset($headers['Authorisation'])) {
   require_once("../../authorisation/jwt.php");
 

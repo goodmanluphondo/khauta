@@ -29,7 +29,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
           $nbf = time();
           $exp = time() + 1800;
-          $key = "5f2b5cdbe5194f10b3241568fe4e2b24";
 
           $user = $query->fetch_array(MYSQLI_ASSOC);
           unset($user['password']);
