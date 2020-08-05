@@ -35,6 +35,10 @@ ul,
 ol {
   list-style: none;
 }
+p {
+  margin: 0;
+  margin-bottom: 18px;
+}
 a {
   color: var(--link-colour);
   text-decoration: none;
@@ -51,11 +55,13 @@ a {
     background-color: var(--dark-background);
 
     .logo {
-      width: 150px;
+      width: 200px;
       height: 50px;
+      display: flex;
+      align-items: center;
 
       h1 {
-        width: auto;
+        width: 150px;
         height: 50px;
         margin: 0px;
 
@@ -70,6 +76,10 @@ a {
           background-repeat: no-repeat;
           background-position: left center;
         }
+      }
+
+      .version {
+        color: var(--body-text);
       }
     }
 
@@ -89,6 +99,20 @@ a {
       font-size: 48px;
       font-weight: normal;
       font-family: Inter, sans-serif;
+    }
+
+    .alert {
+      display: block;
+      padding: 20px;
+      margin: 0px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      border: 1px solid var(--alert-border);
+      background-color: var(--colour-clouds);
+
+      .alert__warning {
+        color: var(--colour-warning);
+      }
     }
 
     .table {

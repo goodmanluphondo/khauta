@@ -68,7 +68,7 @@ app.controller("Posts", function($http, $scope) {
 
 app.controller("Edit", function($http, $scope, $stateParams) {
     let id = $stateParams.id;
-    $scope.post = [];
+    $scope.post = {};
     $http.get("backend/get/?query=post&id=" + id)
     .then(function(response) {
         $scope.post = response.data;
@@ -76,5 +76,41 @@ app.controller("Edit", function($http, $scope, $stateParams) {
 });
 
 app.controller("Compose", function($http, $scope) {
-    //
+    $scope.post = {};
+    $scope.errors = [];
+    $scope.doSlug = function() {
+        if($scope.post.title) {
+            var slug = $scope.post.title.replace(/\s+/g, '-').toLowerCase();
+            $scope.post.slug = slug;
+        } else {
+            $scope.post.slug = null;
+        }
+    }
+    $scope.submitPost = function(event) {
+        event.preventDefault();
+        $scope.errors = [];
+        
+        if($scope.post.title && $scope.post.slug && $scope.post.type && $scope.post.content) {
+            $http({
+                method: "POST",
+                url: "backend/post/posts/",
+                data: $scope.post,
+                headers: {"Content-Type": "application/x-www-form-urlencoded"}
+            }).then(function(response) {
+                if(response.data == "Success") {
+                    console.log("Post created successfully.");
+                } else if(response.data.substring(0, 6) == "Failed") {
+                    let feedback = response.data.split("|");
+                    console.log(feedback[1]);
+                } else {
+                    console.log(response.data);
+                }
+            })
+        } else {
+            if(!$scope.post.title) $scope.errors.push("A title is required.");
+            if(!$scope.post.slug) $scope.errors.push("Something is wrong with your slug.");
+            if(!$scope.post.type) $scope.errors.push("Select the type of post you are composing.");
+            if(!$scope.post.content) $scope.errors.push("There is no post without content.");
+        }
+    }
 });

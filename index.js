@@ -3,6 +3,22 @@ var app = angular.module("app", ["ui.router"]);
 app.config(function($stateProvider, $urlRouterProvider, $provide, $httpProvider) {
     $urlRouterProvider.otherwise("/");
 
+    $provide.service("unauthorisedInterceptor", ["$q", "$window", function($q, $window) {
+        return {
+            "responseError": function(rejection) {
+                if(rejection.status === 401) {
+                    $window.localStorage.removeItem('token');
+                    $window.localStorage.removeItem('currentUser');
+                    $window.location.href = "#/";
+                }
+
+                return $q.reject(rejection);
+            }
+        }
+    }]);
+
+    $httpProvider.interceptors.push("unauthorisedInterceptor");
+
     $stateProvider
     .state("home", {
         url: "/",

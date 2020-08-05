@@ -3,15 +3,19 @@
     <div class="content">
         <h1>Compose</h1>
         <p><a href="#/posts">&larr; Back to Posts</a></p>
-        <form class="form" method="POST">
+        <div class="alert" ng-if="errors.length">
+            <p>Fix the issues below before posting:</p>
+            <ul class="alert__warning">
+              <li ng-repeat="error in errors">{{error}}</li>
+            </ul>
+        </div>
+        <form class="form" method="POST" ng-submit="submitPost($event)">
             <div class="input">
                 <div class="input__group">
                     <label class="form__label">Title</label>
-                    <input type="text" class="form__control" ng-model="post.title">
-                </div>
-                <div class="input__group">
-                    <label class="form__label">Slug</label>
-                    <input type="text" class="form__control" ng-model="post.slug" readonly>
+                    <input type="text" class="form__control" ng-model="post.title" ng-change="doSlug()">
+                    <label class="form__label">Slug: /{{post.slug}}</label>
+                    <input type="hidden" ng-model="post.slug">
                 </div>
                 <div class="input__group">
                     <label class="form__label">Type</label>
