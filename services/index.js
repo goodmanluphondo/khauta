@@ -41,9 +41,22 @@ app.service("Authorisation", function($http, $window, $location) {
     }
 });
 
-app.service("Loading", function() {
-    var loader = [];
+app.service("ModalService", function() {
+    var modals = [];
     var service = {};
 
+    service.add = add;
+    service.open = open;
+    service.close = close;
+    service.remove = remove;
+
     return service;
+
+    function add(modal) {
+        modals.push(modal)
+    }
+
+    function open() {
+
+    }
 });
