@@ -24,7 +24,7 @@ app.config(function($stateProvider, $urlRouterProvider, $provide, $httpProvider)
         url: "/",
         templateUrl: "./components/home.html",
         controller: "Home",
-        // resolve: {authenticated: authenticated}
+        resolve: {authenticated: authenticated}
     })
     .state("login", {
         url: "/login",
