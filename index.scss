@@ -119,15 +119,23 @@ a {
       width: 100%;
 
       .table__header {
-        padding: 5px;
-        text-align: left;
-        font-weight: 200;
-        color: var(--colour-white);
-        background-color: var(--dark-background);
+        width: 100%;
+
+        th {
+          padding: 5px;
+          text-align: left;
+          font-weight: 200;
+          color: var(--colour-white);
+          background-color: var(--dark-background);
+        }
       }
 
       .table__row {
-        padding: 5px;
+        width: 100%;
+
+        td {
+          padding: 5px;
+        }
       }
     }
   }

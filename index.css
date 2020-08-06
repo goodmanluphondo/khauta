@@ -302,6 +302,10 @@ a {
 }
 
 .site .content .table .table__header {
+  width: 100%;
+}
+
+.site .content .table .table__header th {
   padding: 5px;
   text-align: left;
   font-weight: 200;
@@ -310,6 +314,10 @@ a {
 }
 
 .site .content .table .table__row {
+  width: 100%;
+}
+
+.site .content .table .table__row td {
   padding: 5px;
 }
 

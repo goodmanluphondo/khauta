@@ -117,10 +117,12 @@ app.controller("Compose", function($http, $scope) {
 
 app.controller("Gallery", function($http, $scope) {
     $scope.gallery = {};
-    $http.get("backend/get/?type=gallery")
+    $http.get("backend/get/?query=gallery")
     .then(function(response) {
-        console.log(response.data);
-        $scope.gallery = response.data;
+        if(response.data) {
+            console.log(response.data);
+            $scope.gallery = response.data;
+        }
     });
 });
 

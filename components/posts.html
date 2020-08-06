@@ -13,7 +13,7 @@
             <tr class="table__row" ng-repeat="post in posts">
                 <td>{{post.title}}</td>
                 <td>
-                    <label for="">getExcerpt({{post.content}})</label>
+                    <label for="">{{getExcerpt(post.content)}}</label>
                     <a href="#/posts/edit/{{post.ID}}">View</a>
                 </td>
                 <td>{{post.created}}</td>

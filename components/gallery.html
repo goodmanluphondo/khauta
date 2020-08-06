@@ -5,10 +5,17 @@
       <p>Welcome to your gallery.</p>
       <p><a href="#/gallery/post">Post New Item</a></p>
       <table class="table" ng-if="gallery.length">
-        <tr>
+        <tr class="table__header">
           <th>Filename</th>
           <th>Title</th>
           <th>Description</th>
+          <th>Action</th>
+        </tr>
+        <tr class="table__row" ng-repeat="item in gallery">
+          <td>{{item.filename}}</td>
+          <td>{{item.title}}</td>
+          <td>{{item.description}}</td>
+          <td><a href="#/gallery/view/{{item.ID}}">View</a></td>
         </tr>
       </table>
   </div>
