@@ -48,6 +48,18 @@ app.config(function($stateProvider, $urlRouterProvider, $provide, $httpProvider)
         templateUrl: "./components/posts.edit.html",
         controller: "Edit",
         resolve: {authenticated: authenticated}
+    })
+    .state("gallery", {
+        url: "/gallery",
+        templateUrl: "./components/gallery.html",
+        controller: "Gallery",
+        resolve: {authenticated: authenticated}
+    })
+    .state("post", {
+        url: "/gallery/post",
+        templateUrl: "./components/gallery.post.html",
+        controller: "Post",
+        resolve: {authenticated: authenticated}
     });
 
     function authenticated ($q, $state, $timeout, Authorisation) {

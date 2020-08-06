@@ -114,3 +114,42 @@ app.controller("Compose", function($http, $scope) {
         }
     }
 });
+
+app.controller("Gallery", function($http, $scope) {
+    $scope.gallery = {};
+    $http.get("backend/get/?type=gallery")
+    .then(function(response) {
+        console.log(response.data);
+        $scope.gallery = response.data;
+    });
+});
+
+// Post new gallery item
+app.controller("Post", function($http, $scope) {
+    $scope.item = {};
+    $scope.errors = [];
+    $scope.postItem = function(event) {
+        event.preventDefault();
+        console.log($scope.item);
+        $http({
+            method: "POST",
+            url: "backend/post/gallery/",
+            data: {
+                title: $scope.item.title,
+                description: $scope.item.description,
+                file: $scope.file
+            },
+            headers: {"Content-Type": undefined},
+            transformRequest: function(data) {
+                var formData = new FormData();
+                angular.forEach(data, function(value, key) {
+                    formData.append(key, value);
+                });
+
+                return formData;
+            }
+        }).then(function(response) {
+            console.log(response.data);
+        });
+    }
+});

@@ -1,21 +1,35 @@
-app.directive("Modal", function() {
+// app.directive("Modal", function() {
+//     return {
+//         link: function(scope, element, attrs) {
+//             element.appendTo("body");
+
+//             element.on("click", function(event) {
+//                 element.remove();
+//             });
+
+//             // function Open() {
+//             //     element.show();
+//             //     $('body').addClass("modal-open");
+//             // }
+
+//             // function Hide() {
+//             //     element.hide();
+//             //     $('body').removeClass("modal-open");
+//             // }
+//         }
+//     };
+// });
+
+app.directive("file", function() {
     return {
-        link: function(scope, element, attrs) {
-            element.appendTo("body");
-
-            element.on("click", function(event) {
-                element.remove();
-            });
-
-            function Open() {
-                element.show();
-                $('body').addClass("modal-open");
-            }
-
-            function Hide() {
-                element.hide();
-                $('body').removeClass("modal-open");
-            }
+        scope: {
+            file: "="
+        },
+        link: function(scope, el, attrs) {
+            el.bind("change", function(event) {
+                var file = event.target.files[0];
+                scope.file = file ? file : undefined;
+                scope.$apply;            })
         }
-    };
+    }
 });

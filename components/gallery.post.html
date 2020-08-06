@@ -1,0 +1,32 @@
+<div class="post" ng-controller="Post">
+  <div ng-include="'components/header.html'"></div>
+  <div class="content">
+      <p><a href="#/gallery">&larr; Back to Gallery</a></p>
+      <h2>New Gallery Item</h2>
+      <div class="alert" ng-if="errors.length">
+        <p>Fix the issues below before posting:</p>
+        <ul class="alert__warning">
+          <li ng-repeat="error in errors">{{error}}</li>
+        </ul>
+    </div>
+      <form class="form" method="POST" enctype="multipart/form-data" ng-submit="postItem($event)">
+        <div class="input">
+          <div class="input__group">
+            <label>File</label>
+            <input type="file" file="file" class="form__control">
+          </div>
+          <div class="input__group">
+            <label>Title</label>
+            <input type="text" class="form__control" ng-model="item.title">
+          </div>
+          <div class="input__group">
+            <label>Description</label>
+            <textarea class="form__control" ng-model="item.description"></textarea>
+          </div>
+          <div class="form__group">
+            <input type="submit" class="button" value="Submit">
+          </div>
+        </div>
+      </form>
+  </div>
+</div>

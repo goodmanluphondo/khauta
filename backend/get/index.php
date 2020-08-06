@@ -33,5 +33,18 @@ if($query != null) {
                 echo(json_encode($posts));
             }
         break;
+        case "gallery":
+            $SQL   = "SELECT * FROM gallery WHERE gallery.deleted = 0";
+            $query = $dbcon->query($SQL) or trigger_error($dbcon->error . ": [$SQL]");
+
+            if($query && $query->num_rows > 0) {
+                $gallery = array();
+                while($item = $query->fetch_array(MYSQLI_ASSOC)) {
+                    array_push($gallery, $item);
+                }
+
+                echo(json_encode($gallery));
+            }
+        break;
     }
 }
